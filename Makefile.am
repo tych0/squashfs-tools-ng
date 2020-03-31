@@ -18,6 +18,7 @@ check_SCRIPTS =
 pkgconfig_DATA =
 
 EXTRA_DIST = autogen.sh README.md CHANGELOG.md COPYING.md mkwinbins.sh licenses
+EXTRA_DIST += squashfs-tools-ng.sln squashfs-tools-ng.vcxproj
 TESTS =
 
 include lib/sqfs/Makemodule.am

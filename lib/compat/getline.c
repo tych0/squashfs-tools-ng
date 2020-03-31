@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 #ifndef HAVE_GETLINE
-ssize_t getline(char **line, size_t *n, FILE *fp)
+int getline(char **line, size_t *n, FILE *fp)
 {
 	size_t new_cap, len = 0, cap = 0;
 	char *buffer = NULL, *new;

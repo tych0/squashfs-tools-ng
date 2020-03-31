@@ -27,6 +27,10 @@
 #		define SZ_ADD_OV __builtin_add_overflow
 #		define SZ_MUL_OV __builtin_mul_overflow
 #	endif
+#elif defined(_MSC_VER)
+#	include <intsafe.h>
+#	define SZ_ADD_OV SizeTAdd
+#	define SZ_MUL_OV SizeTMult
 #else
 #	error I do not know how to trap integer overflows with this compiler
 #endif
@@ -40,7 +44,13 @@
 #	define PRI_U32 "%" PRIu32
 #endif
 
-#if SIZEOF_SIZE_T <= SIZEOF_INT
+#ifdef _MSC_VER
+#	ifdef _WIN64
+#		define PRI_SZ PRI_U64
+#	else
+#		define PRI_SZ PRI_U32
+#	endif
+#elif SIZEOF_SIZE_T <= SIZEOF_INT
 #	define PRI_SZ "%u"
 #elif SIZEOF_SIZE_T == SIZEOF_LONG
 #	define PRI_SZ "%lu"
@@ -73,8 +83,17 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+#include <malloc.h>
+
+#ifdef _MSC_VER
+#	define alloca _alloca
+#endif
+
+#define strdup _strdup
 #else
 #include <endian.h>
+#include <alloca.h>
 #endif
 
 #if defined(_WIN32) || defined(__WINDOWS__)
@@ -167,7 +186,7 @@ int chdir(const char *path);
 #ifndef HAVE_GETLINE
 #include <stdio.h>
 
-ssize_t getline(char **line, size_t *n, FILE *fp);
+int getline(char **line, size_t *n, FILE *fp);
 #endif
 
 #ifndef HAVE_STRNDUP
