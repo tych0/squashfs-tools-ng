@@ -7,6 +7,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define _CRT_SECURE_NO_WARNINGS
 
+#define WITH_GZIP 1
+#define WITH_LZ4 1
 
 #endif /* CONFIG_H */
