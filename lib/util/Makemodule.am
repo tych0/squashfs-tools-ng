@@ -6,3 +6,5 @@ libutil_a_CFLAGS = $(AM_CFLAGS)
 libutil_a_CPPFLAGS = $(AM_CPPFLAGS)
 
 noinst_LIBRARIES += libutil.a
+
+EXTRA_DIST += lib/util/libutil.vcxproj lib/util/libutil.vcxproj.filters

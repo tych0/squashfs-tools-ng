@@ -4,3 +4,5 @@ libcompat_a_SOURCES += lib/compat/chdir.c include/compat.h
 libcompat_a_SOURCES += lib/compat/path_to_windows.c
 
 noinst_LIBRARIES += libcompat.a
+
+EXTRA_DIST += lib/compat/libcompat.vcxproj lib/compat/libcompat.vcxproj.filters

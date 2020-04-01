@@ -282,8 +282,8 @@ out_desc:
 int fstree_from_file(fstree_t *fs, const char *filename, FILE *fp)
 {
 	size_t n, line_num = 0;
-	ssize_t ret;
 	char *line;
+	int ret;
 
 	for (;;) {
 		line = NULL;
