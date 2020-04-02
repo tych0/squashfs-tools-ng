@@ -204,6 +204,20 @@ extern char *optarg;
 int getopt(int argc, char *const argv[], const char *optstr);
 #endif
 
+#ifndef HAVE_GETOPT_LONG
+struct option {
+	const char *name;
+	int         has_arg;
+	int         val;
+};
+
+#define no_argument 0
+#define required_argument 1
+
+int getopt_long(int argc, char *const argv[], const char *optstr,
+		const struct option *longopts, int *longindex);
+#endif
+
 #if defined(_WIN32) || defined(__WINDOWS__)
 WCHAR *path_to_windows(const char *input);
 #endif

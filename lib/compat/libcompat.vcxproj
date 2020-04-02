@@ -157,6 +157,7 @@
     <ClCompile Include="chdir.c" />
     <ClCompile Include="getline.c" />
     <ClCompile Include="getopt.c" />
+    <ClCompile Include="getopt_long.c" />
     <ClCompile Include="getsubopt.c" />
     <ClCompile Include="mockups.c" />
     <ClCompile Include="path_to_windows.c" />
