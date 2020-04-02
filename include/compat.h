@@ -197,6 +197,13 @@ char *strndup(const char *str, size_t max_len);
 int getsubopt(char **opt, char *const *keys, char **val);
 #endif
 
+#ifndef HAVE_GETOPT
+extern int optind;
+extern char *optarg;
+
+int getopt(int argc, char *const argv[], const char *optstr);
+#endif
+
 #if defined(_WIN32) || defined(__WINDOWS__)
 WCHAR *path_to_windows(const char *input);
 #endif

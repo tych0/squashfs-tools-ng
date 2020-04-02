@@ -14,6 +14,9 @@
     <ClCompile Include="getline.c">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="getopt.c">
+      <Filter>Source</Filter>
+    </ClCompile>
     <ClCompile Include="getsubopt.c">
       <Filter>Source</Filter>
     </ClCompile>
