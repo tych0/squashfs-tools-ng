@@ -10,13 +10,16 @@
 #include "tar.h"
 
 #include <stdlib.h>
-#include <getopt.h>
 #include <string.h>
 #include <stdio.h>
 #include <fcntl.h>
 
 #ifdef _WIN32
 #include <io.h>
+#endif
+
+#ifdef HAVE_GETOPT_LONG
+#include <getopt.h>
 #endif
 
 static struct option long_opts[] = {

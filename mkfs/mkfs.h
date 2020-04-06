@@ -29,15 +29,21 @@
 #include <selinux/label.h>
 #endif
 
+#ifdef HAVE_GETOPT_LONG
 #include <getopt.h>
+#endif
+
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#include <dirent.h>
 #include <stdio.h>
 #include <errno.h>
 #include <ctype.h>
+
+#if !defined(_WIN32) && !defined(__WINDOWS__)
+#include <dirent.h>
+#endif
 
 typedef struct {
 	sqfs_writer_cfg_t cfg;

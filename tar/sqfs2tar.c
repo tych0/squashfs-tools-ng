@@ -8,7 +8,10 @@
 #include "common.h"
 #include "tar.h"
 
+#ifdef HAVE_GETOPT_LONG
 #include <getopt.h>
+#endif
+
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
