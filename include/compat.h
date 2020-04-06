@@ -208,6 +208,7 @@ int getopt(int argc, char *const argv[], const char *optstr);
 struct option {
 	const char *name;
 	int         has_arg;
+	void       *dummy;
 	int         val;
 };
 
