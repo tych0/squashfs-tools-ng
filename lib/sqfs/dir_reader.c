@@ -277,9 +277,8 @@ int sqfs_dir_reader_find_by_path(sqfs_dir_reader_t *rd,
 		return ret;
 
 	while (*path != '\0') {
-		if (*path == '/' || *path == '\\') {
-			while (*path == '/' || *path == '\\')
-				++path;
+		if (*path == '/') {
+			path = skip_path_seps(path);
 			continue;
 		}
 
@@ -288,14 +287,10 @@ int sqfs_dir_reader_find_by_path(sqfs_dir_reader_t *rd,
 		if (ret)
 			return ret;
 
-		ptr = strchr(path, '/');
+		ptr = next_path_sep(path);
 		if (ptr == NULL) {
-			ptr = strchr(path, '\\');
-
-			if (ptr == NULL) {
-				for (ptr = path; *ptr != '\0'; ++ptr)
-					;
-			}
+			for (ptr = path; *ptr != '\0'; ++ptr)
+				;
 		}
 
 		do {

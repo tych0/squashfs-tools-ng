@@ -188,4 +188,7 @@ int getsubopt(char **opt, char *const *keys, char **val);
 WCHAR *path_to_windows(const char *input);
 #endif
 
+const char *skip_path_seps(const char *);
+const char *next_path_sep(const char *);
+
 #endif /* COMPAT_H */
